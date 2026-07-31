@@ -1,5 +1,7 @@
 # Topo2fault
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21727937.svg)](https://doi.org/10.5281/zenodo.21727937)
+
 ## What is Topo2fault?
 
 Topo2fault infers fault geometry at depth from river topography. Deviations of a river profile from its characteristic form map to dip changes along the fault, so topography constrains the relative, non-planar geometry.
