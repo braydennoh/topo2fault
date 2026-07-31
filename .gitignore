@@ -1,0 +1,6 @@
+results/
+figures/*.pdf
+figures/*.png
+__pycache__/
+*.npz
+.DS_Store
