@@ -56,6 +56,7 @@ Priors on $\dot{s}$ and $\theta$ are informative. In the Himalaya, the Main Hima
 This repository archives the inversion applied to 15 Himalayan rivers (Beas to Dudh Koshi).
 
 ```
+synthetic_test.ipynb     tutorial: build a synthetic profile, then invert it
 run_all.py               driver (snap + 15 inversions)
 run_inversion.py         MCMC inversion for one river (--seg N --config F3)
 thrust_fault_model.py    forward model (fault-bend folding + stream power)
@@ -67,5 +68,7 @@ data/
 ```
 
 `python run_inversion.py --seg 7 --config F3` inverts one river; `python run_all.py` runs all 15 (about 7.5 hr). Each run ends in `results/river_NN/mcmc_results.npz` with the full posterior.
+
+`synthetic_test.ipynb` is a self-contained worked example that generates a river profile from a prescribed flat-ramp-flat fault and recovers the geometry from it, in about 90 seconds and with no external data.
 
 Python dependencies are listed in `requirements.txt`. Snapping and channel-elevation sampling additionally require the Copernicus GLO-30 DEM and topotoolbox, whose local paths are set at the top of `snap_rivers.py` and `run_inversion.py`.

@@ -4,3 +4,4 @@ figures/*.png
 __pycache__/
 *.npz
 .DS_Store
+synthetic_river.csv
