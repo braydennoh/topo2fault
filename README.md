@@ -53,13 +53,13 @@ Priors on $\dot{s}$ and $\theta$ are informative. In the Himalaya, the Main Hima
 
 ## Earthquake cycle
 
-The uplift $U=\dot{s}\sin\theta$ above is the long-term, cycle-averaged field. Over a balanced earthquake cycle it splits into a coseismic and an interseismic part,
+The uplift $U=\dot{s}\sin\theta$ above is the long-term, cycle-averaged field. Over a balanced cycle it splits as
 
 ```math
 v_\mathrm{interseismic}=v_\mathrm{long\text{-}term}-v_\mathrm{coseismic},
 ```
 
-so recovering fault geometry from topography also fixes what the geodetic fields should look like. Where the fault bends, flexural slip folds the hanging wall across an axial surface, the bisector of the interlimb angle. Material crossing that surface changes velocity discontinuously, and the jump has the same deformation-gradient field as slip on a fault, so each axial surface can be carried as a dislocation in an elastic half-space ([Souter & Hager, 1997](https://doi.org/10.1029/97JB00209)) alongside the fault segments themselves ([Freund & Barnett, 1976](https://doi.org/10.1785/BSSA0660030667)). Discretizing one listric fault ever more finely spreads the discrete folds into a continuous distribution of slip density $\dot{s}\kappa$, and long-term, coseismic, and interseismic uplift all converge to the smooth non-planar limit. This supports Section 2.3 (Non-planar faults) of the paper, where the figure below appears as Figure 2; `earthquake_cycle.ipynb` builds the whole construction from scratch.
+so geometry recovered from topography also predicts the geodetic fields. At a fault bend, flexural slip folds the hanging wall across an axial surface; material crossing it changes velocity discontinuously, and that jump deforms the elastic half-space exactly as fault slip does, so each axial surface is carried as a dislocation ([Souter & Hager, 1997](https://doi.org/10.1029/97JB00209)) alongside the fault segments ([Freund & Barnett, 1976](https://doi.org/10.1785/BSSA0660030667)). Discretizing one listric fault more finely spreads the folds into a continuous distribution of slip density $\dot{s}\kappa$, and all three fields converge to the smooth non-planar limit. Section 2.3 of the paper; derived from scratch in `earthquake_cycle.ipynb`.
 
 <p align="center">
   <img src="assets/fault_axial_3x3.png" width="100%" alt="Convergence of the axial-surface dislocation construction for one listric fault discretized with 1, 10, and 100 axial surfaces. Top row: vertical surface velocity, long-term in black, coseismic in red, interseismic in blue. Bottom row: fault geometry colored by coupling from locked to creeping, with the axial surfaces drawn from each bend to the free surface">
