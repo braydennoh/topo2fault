@@ -61,10 +61,6 @@ v_\mathrm{interseismic}=v_\mathrm{long\text{-}term}-v_\mathrm{coseismic},
 
 so geometry recovered from topography also predicts the geodetic fields. At a fault bend, flexural slip folds the hanging wall across an axial surface; material crossing it changes velocity discontinuously, and that jump deforms the elastic half-space exactly as fault slip does, so each axial surface is carried as a dislocation ([Souter & Hager, 1997](https://doi.org/10.1029/97JB00209)) alongside the fault segments ([Freund & Barnett, 1976](https://doi.org/10.1785/BSSA0660030667)). Discretizing one listric fault more finely spreads the folds into a continuous distribution of slip density $\dot{s}\kappa$, and all three fields converge to the smooth non-planar limit. Section 2.3 of the paper; derived from scratch in `earthquake_cycle.ipynb`.
 
-<p align="center">
-  <img src="assets/fault_axial_3x3.png" width="100%" alt="Convergence of the axial-surface dislocation construction for one listric fault discretized with 1, 10, and 100 axial surfaces. Top row: vertical surface velocity, long-term in black, coseismic in red, interseismic in blue. Bottom row: fault geometry colored by coupling from locked to creeping, with the axial surfaces drawn from each bend to the free surface">
-</p>
-
 ## Code
 
 This repository archives the inversion applied to 15 Himalayan rivers (Beas to Dudh Koshi).
