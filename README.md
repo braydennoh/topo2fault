@@ -57,6 +57,7 @@ This repository archives the inversion applied to 15 Himalayan rivers (Beas to D
 
 ```
 synthetic_test.ipynb     tutorial: build a synthetic profile, then invert it
+earthquake_cycle.ipynb   tutorial: the earthquake-cycle dislocation model from scratch
 run_all.py               driver (snap + 15 inversions)
 run_inversion.py         MCMC inversion for one river (--seg N --config F3)
 thrust_fault_model.py    forward model (fault-bend folding + stream power)
@@ -70,5 +71,7 @@ data/
 `python run_inversion.py --seg 7 --config F3` inverts one river; `python run_all.py` runs all 15 (about 7.5 hr). Each run ends in `results/river_NN/mcmc_results.npz` with the full posterior.
 
 `synthetic_test.ipynb` is a self-contained worked example that generates a river profile from a prescribed flat-ramp-flat fault and recovers the geometry from it, in about 90 seconds and with no external data.
+
+`earthquake_cycle.ipynb` builds the uplift forward model itself from scratch — edge dislocations under a free surface (Freund & Barnett, 1976; Segall, 2010), axial surfaces of fault-bend folds treated as dislocations (Souter & Hager, 1997), and the balanced-cycle decomposition $v_\mathrm{interseismic} = v_\mathrm{long\text{-}term} - v_\mathrm{coseismic}$ — and shows the construction converging as the same listric fault is discretized with 1, 10, and 100 axial surfaces. Only `numpy` and `matplotlib`; runtime a few seconds.
 
 Python dependencies are listed in `requirements.txt`. Snapping and channel-elevation sampling additionally require the Copernicus GLO-30 DEM and topotoolbox, whose local paths are set at the top of `snap_rivers.py` and `run_inversion.py`.
