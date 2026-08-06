@@ -51,6 +51,20 @@ Priors on $\dot{s}$ and $\theta$ are informative. In the Himalaya, the Main Hima
   <img src="assets/comparison_morph.gif" width="100%" alt="Prior-to-posterior morph: ensembles of river profiles (h), rock uplift (v_z/s-dot), and fault geometry (z) tightening from scattered prior draws onto the true fault in three synthetic cases">
 </p>
 
+## Earthquake cycle
+
+The uplift $U=\dot{s}\sin\theta$ above is the long-term, cycle-averaged field. Over a balanced earthquake cycle it splits into a coseismic and an interseismic part,
+
+```math
+v_\mathrm{interseismic}=v_\mathrm{long\text{-}term}-v_\mathrm{coseismic},
+```
+
+so recovering fault geometry from topography also fixes what the geodetic fields should look like. Where the fault bends, flexural slip folds the hanging wall across an axial surface, the bisector of the interlimb angle. Material crossing that surface changes velocity discontinuously, and the jump has the same deformation-gradient field as slip on a fault, so each axial surface can be carried as a dislocation in an elastic half-space ([Souter & Hager, 1997](https://doi.org/10.1029/97JB00209)) alongside the fault segments themselves ([Freund & Barnett, 1976](https://doi.org/10.1785/BSSA0660030667)). Discretizing one listric fault ever more finely spreads the discrete folds into a continuous distribution of slip density $\dot{s}\kappa$, and long-term, coseismic, and interseismic uplift all converge to the smooth non-planar limit. This supports Section 2.3 (Non-planar faults) of the paper, where the figure below appears as Figure 2; `earthquake_cycle.ipynb` builds the whole construction from scratch.
+
+<p align="center">
+  <img src="assets/fault_axial_3x3.png" width="100%" alt="Convergence of the axial-surface dislocation construction for one listric fault discretized with 1, 10, and 100 axial surfaces. Top row: vertical surface velocity, long-term in black, coseismic in red, interseismic in blue. Bottom row: fault geometry colored by coupling from locked to creeping, with the axial surfaces drawn from each bend to the free surface">
+</p>
+
 ## Code
 
 This repository archives the inversion applied to 15 Himalayan rivers (Beas to Dudh Koshi).
@@ -72,6 +86,6 @@ data/
 
 `synthetic_test.ipynb` is a self-contained worked example that generates a river profile from a prescribed flat-ramp-flat fault and recovers the geometry from it, in about 90 seconds and with no external data.
 
-`earthquake_cycle.ipynb` builds the uplift forward model itself from scratch — edge dislocations under a free surface (Freund & Barnett, 1976; Segall, 2010), axial surfaces of fault-bend folds treated as dislocations (Souter & Hager, 1997), and the balanced-cycle decomposition $v_\mathrm{interseismic} = v_\mathrm{long\text{-}term} - v_\mathrm{coseismic}$ — and shows the construction converging as the same listric fault is discretized with 1, 10, and 100 axial surfaces. Only `numpy` and `matplotlib`; runtime a few seconds.
+`earthquake_cycle.ipynb` derives the uplift forward model of the section above from scratch — free-surface edge dislocations, axial surfaces as dislocations, and the balanced cycle — reproducing the figure there. Only `numpy` and `matplotlib`; runtime a few seconds.
 
 Python dependencies are listed in `requirements.txt`. Snapping and channel-elevation sampling additionally require the Copernicus GLO-30 DEM and topotoolbox, whose local paths are set at the top of `snap_rivers.py` and `run_inversion.py`.
